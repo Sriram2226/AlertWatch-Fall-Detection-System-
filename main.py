@@ -3,19 +3,26 @@ import cvzone
 import math
 from ultralytics import YOLO
 import requests
+import time
 
 #Create your own Telegram bot and input your Telegram bot token and chat ID into the designated variables
 telegram_bot_token = '7086704934:AAGw7g9Tvm2w3HdDFoIDA0kumh6AhISMFnQ'
 chat_id = '6167901931'
+last_notification_time = 0
+notification_interval = 60
 
 def send_telegram_message(message):
-    url = f'https://api.telegram.org/bot{telegram_bot_token}/sendMessage'
-    payload = {
-        'chat_id': chat_id,
-        'text': message
-    }
-    response = requests.post(url, json=payload)
-    print(response.json())
+    global last_notification_time
+    current_time = time.time()
+    if current_time - last_notification_time >= notification_interval:
+        url = f'https://api.telegram.org/bot{telegram_bot_token}/sendMessage'
+        payload = {
+            'chat_id': chat_id,
+            'text': message
+        }
+        response = requests.post(url, json=payload)
+        print(response.json())
+        last_notification_time = current_time
 
 cap = cv2.VideoCapture('fall.mp4')
 
