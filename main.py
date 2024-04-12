@@ -4,6 +4,7 @@ import math
 from ultralytics import YOLO
 import requests
 
+#Create your own Telegram bot and input your Telegram bot token and chat ID into the designated variables
 telegram_bot_token = '7086704934:AAGw7g9Tvm2w3HdDFoIDA0kumh6AhISMFnQ'
 chat_id = '6167901931'
 
@@ -52,8 +53,8 @@ while True:
                 cvzone.cornerRect(frame, [x1, y1, width, height], l=30, rt=6)
                 cvzone.putTextRect(frame, f'{class_detect}', [x1 + 8, y1 - 12], thickness=2, scale=2)
             
-            if threshold < 0:
-                cvzone.putTextRect(frame, 'Fall Detected', [height, width], thickness=2, scale=2)
+            if threshold < -20: #non customised value : 0
+                cvzone.putTextRect(frame, 'Fall Detected', [height, width], thickness=2, scale=2,colorR=(0,0,255))
                 send_telegram_message("Alert, Person Fell Down")
             
             else:pass
