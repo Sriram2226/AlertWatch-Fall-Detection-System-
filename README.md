@@ -11,13 +11,13 @@ This project is a fall detection system implemented using Python and libraries s
    git clone https://github.com/Sriram2226/AlertWatch-Fall-Detection-System-.git
    ```
 
-2. Install the required dependencies:
+2. **Install the required dependencies**:
 
    ```bash
    pip install -r requirements.txt
    ```
 
-3. NOTE : Create your own Telegram Bot using Botfather token in telegram and paste the your bot token and chat_id in main.py's designated variable
+3. **NOTE** : Create your own Telegram Bot using Botfather token in telegram and paste the your bot token and chat_id in main.py's designated variable
    [Then only you can run main.py to get alert notification]
 
 ## Usage
