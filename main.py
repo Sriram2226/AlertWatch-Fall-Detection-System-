@@ -6,8 +6,8 @@ import requests
 import time
 
 #Create your own Telegram bot and input your Telegram bot token and chat ID into the designated variables
-telegram_bot_token = '7086704934:AAGw7g9Tvm2w3HdDFoIDA0kumh6AhISMFnQ'
-chat_id = '6167901931'
+telegram_bot_token = 'ENTER YOUR TELEGRAM BOT TOKEN'
+chat_id = 'ENTER YOUR CHAT ID'
 last_notification_time = 0
 notification_interval = 60  #customize notification interval as you want
 
