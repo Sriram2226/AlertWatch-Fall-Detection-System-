@@ -9,9 +9,9 @@ import time
 telegram_bot_token = '7086704934:AAGw7g9Tvm2w3HdDFoIDA0kumh6AhISMFnQ'
 chat_id = '6167901931'
 last_notification_time = 0
-notification_interval = 60
+notification_interval = 60  #customize notification interval as you want
 
-def send_telegram_message(message):
+def send_telegram_message(message, img_path=None):
     global last_notification_time
     current_time = time.time()
     if current_time - last_notification_time >= notification_interval:
@@ -22,6 +22,11 @@ def send_telegram_message(message):
         }
         response = requests.post(url, json=payload)
         print(response.json())
+        if img_path:
+            files = {'photo': open(img_path, 'rb')}
+            url = f'https://api.telegram.org/bot{telegram_bot_token}/sendPhoto'
+            response = requests.post(url, files=files, data=payload)
+            print(response.json())
         last_notification_time = current_time
 
 cap = cv2.VideoCapture('fall.mp4')
@@ -62,7 +67,8 @@ while True:
             
             if threshold < -20: #non customised value : 0
                 cvzone.putTextRect(frame, 'Fall Detected', [height, width], thickness=2, scale=2,colorR=(0,0,255))
-                send_telegram_message("Alert, Person Fell Down")
+                cv2.imwrite('fall_image.jpg', frame)
+                send_telegram_message("Alert, Person Fell Down", img_path='fall_image.jpg')
             
             else:pass
 
