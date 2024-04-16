@@ -1,7 +1,7 @@
 
 # AlertWatch - Fall Detection System
 
-This project is a fall detection system implemented using Python and libraries such as OpenCV, cvzone, and ultralytics YoloV8. It detects falls in a video stream using Yolov8 object detection and sends alert notification via Telegram when a fall is detected.
+**AlertWatch** is a sophisticated fall detection system implemented in Python, utilizing YOLOv8 object detection for precise identification of falls in video streams. Upon detecting a fall, it promptly sends alerts via Telegram, including an image of the incident for added context. This system finds applications in elderly care facilities, public safety, and home monitoring, offering swift assistance and peace of mind to caregivers and family members. Compared to human monitoring, AlertWatch boasts superior speed, consistency, scalability, and accuracy, making it a highly efficient solution for ensuring the safety of individuals in various environments.
 
 ## Installation
 
@@ -18,8 +18,7 @@ This project is a fall detection system implemented using Python and libraries s
    ```
 
 > [!IMPORTANT]
-> Create your own Telegram Bot using Botfather token in telegram and paste the your bot token and chat_id in main.py's designated variable
-   [Then only you can run main.py to get alert notification]
+> To send message to your Telegram ID, first create your own bot on Telegram using BotFather. Then, paste your bot token and chat ID into the designated variables in the main.py file. Only after completing this step will you be able to run main.py to receive alert notifications.
 
 ## Usage
 

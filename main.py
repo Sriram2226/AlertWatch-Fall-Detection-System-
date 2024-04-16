@@ -21,7 +21,7 @@ except:
     print("1.Make api_token.txt\n2.Add your telegram bot token and chat id ")
 
 
-def send_telegram_message(message):
+def send_telegram_message(message, img_path=None):
     global last_notification_time
     current_time = time.time()
     if current_time - last_notification_time >= notification_interval:
@@ -29,6 +29,11 @@ def send_telegram_message(message):
         payload = {"chat_id": chat_id, "text": message}
         response = requests.post(url, json=payload)
         print(response.json())
+        if img_path:
+            files = {"photo": open(img_path, "rb")}
+            url = f"https://api.telegram.org/bot{telegram_bot_token}/sendPhoto"
+            response = requests.post(url, files=files, data=payload)
+            print(response.json())
         last_notification_time = current_time
 
 
