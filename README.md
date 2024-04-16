@@ -17,7 +17,8 @@ This project is a fall detection system implemented using Python and libraries s
    pip install -r requirements.txt
    ```
 
-3. **NOTE** : Create your own Telegram Bot using Botfather token in telegram and paste the your bot token and chat_id in main.py's designated variable
+> [!IMPORTANT]
+> Create your own Telegram Bot using Botfather token in telegram and paste the your bot token and chat_id in main.py's designated variable
    [Then only you can run main.py to get alert notification]
 
 ## Usage
